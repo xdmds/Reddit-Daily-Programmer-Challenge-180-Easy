@@ -15,10 +15,20 @@ namespace reddit_challenge_180_easy
     {
         static void Main(string[] args)
         {
-
-            Generator g = new Generator(6, 1);
-            g.generate();
-            Console.Read();
+            if (args.Length == 2)
+            {
+                int terms = Convert.ToInt32(args[0]);
+                int seed = Convert.ToInt32(args[1]);
+                Generator g = new Generator(terms, seed);
+                g.generate();
+                Console.Read();
+            }
+            else
+            {
+                Console.WriteLine("Invalid Arguments");
+                Console.WriteLine("Usage: Program.cs [number of terms] [seed]");
+                Console.ReadLine();
+            }
         }
     }
 }
